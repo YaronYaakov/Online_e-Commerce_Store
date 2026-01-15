@@ -1,4 +1,4 @@
-# Online Store
+# Online E-Commerce Store
 
 The project describes the development of a **virtual store** – an online shop for selling food and grocery products through a self-service model. The **client side** was developed with **Angular 8**, providing a dynamic and responsive user interface for managing the shopping experience, while the **server side** was built with **Node.js** and **Express** to handle requests, process data, and connect the client with external services, resulting in a modern, efficient, and web-based system.
 
