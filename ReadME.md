@@ -22,7 +22,7 @@ The project describes the development of a **virtual store**  – an online shop
   - Restfull App
   - Middlewares
   - Login filter
-  - Authentication by JWT
+  - User uthentication by JWT
   
 * MySQL
   - Design & create schema
