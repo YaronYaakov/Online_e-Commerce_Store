@@ -1,6 +1,6 @@
 # Online E-Commerce Store
 
-The project describes the development of a **virtual store** – an online shop for selling food and grocery products through a self-service model. The **client side** was developed with **Angular 9**, providing a dynamic and responsive user interface for managing the shopping experience, while the **server side** was built with **Node.js** and **Express** to handle requests, process data, and connect the client with external services, resulting in a modern, efficient, and web-based system.
+The project describes the development of a **virtual store** – an online shop for selling food and grocery products through a self-service model. The **client side** was developed with **Angular 21**, providing a dynamic and responsive user interface for managing the shopping experience, while the **server side** was built with **Node.js** and **Express** to handle requests, process data, and connect the client with external services, resulting in a modern, efficient, and web-based system.
 
 ## Topics:
 
@@ -23,9 +23,8 @@ The project describes the development of a **virtual store** – an online shop 
 
 ### Home Page:
 
-<img width="1897" height="876" alt="Image" src="https://github.com/user-attachments/assets/fcd22941-c92a-439d-a779-8049627e5aec" />***
-
-### Mobile Friendly:
+![homepage](<img width="1882" height="866" alt="Image" src="https://github.com/user-attachments/assets/bc8e6e19-846b-4ca2-81c9-66b18c97826e" />
+)### Mobile Friendly:
 
 ![mobileFriendly]()
 
@@ -33,27 +32,27 @@ The project describes the development of a **virtual store** – an online shop 
 
 ### Shoppping cart and Products:
 * The cart can be shown or hidden
-![cartAndProducts](<img width="1895" height="876" alt="products" src="https://github.com/user-attachments/assets/ce87b5d6-28aa-421c-83bb-867ee31cc7be" />
+![cartAndProducts](<img width="1895" height="876" alt="Image" src="https://github.com/user-attachments/assets/45b704ae-bb44-4ed9-b35a-501bc58d735c" />
 )
 
 ***
 
 ### Order Page:
 * Note that just for demonstration - only 3 orders are allowed per day.
-![orderPage](<img width="1897" height="876" alt="order" src="https://github.com/user-attachments/assets/25e427ed-a2d0-4dfa-a836-372ac44514d1" />
+![orderPage](<img width="1897" height="876" alt="Image" src="https://github.com/user-attachments/assets/f9400be6-21fa-4bdf-ba33-21d62ca17864" />
 )
 
 ***
 
 ### Order Successfully Completed:
-![orderCompleted](<img width="1892" height="877" alt="צילום מסך 2026-07-03 190014" src="https://github.com/user-attachments/assets/cd785a86-3dd8-4319-88ca-8f559e6e0f69" />
+![orderCompleted](<img width="1892" height="877" alt="Image" src="https://github.com/user-attachments/assets/975c8859-46e7-4782-a25b-14f12c3cb45d" />
 )
 
 ***
 
 ### Receipt:
 * The customer recieves a receipt as a text file.
-![receipt](<img width="722" height="595" alt="receipt" src="https://github.com/user-attachments/assets/a7b76ab9-a68b-4b6b-8cac-8f06c9036b0c" />
+![receipt](<img width="722" height="595" alt="Image" src="https://github.com/user-attachments/assets/7a5c2359-da68-419e-905c-d468d6284423" />
 
 )
 
@@ -61,13 +60,13 @@ The project describes the development of a **virtual store** – an online shop 
 ***
 
 ### Register Step One:
-![registerStepOne](<img width="1897" height="882" alt="signup1" src="https://github.com/user-attachments/assets/131270e7-4b6e-4cab-b64f-b0223d929946" />
+![registerStepOne](<img width="1897" height="882" alt="Image" src="https://github.com/user-attachments/assets/09da96f7-daea-4e23-b58d-2d7f30738f5e" />
 )
 
 ***
 
 ### Register Step Two:
-![registerStepTwo](<img width="1891" height="877" alt="signup2" src="https://github.com/user-attachments/assets/e8cadeee-f5ed-4038-8748-26f58cfe0cc8" />
+![registerStepTwo](<img width="1891" height="877" alt="Image" src="https://github.com/user-attachments/assets/e5a5c85b-ee84-47ec-ac75-0645754eac5e" />
 )
 
 ***
