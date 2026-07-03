@@ -24,8 +24,8 @@ The project describes the development of a **virtual store** – an online shop 
 ### Home Page:
 
 <img width="1882" height="866" alt="Image" src="https://github.com/user-attachments/assets/bc8e6e19-846b-4ca2-81c9-66b18c97826e" />
-### Mobile Friendly:
 
+### Mobile Friendly:
 <img width="1020" height="781" alt="mobile" src="https://github.com/user-attachments/assets/373b0e91-8dbb-4641-8ebb-a3680f5320c5" />
 
 ***
@@ -56,13 +56,13 @@ The project describes the development of a **virtual store** – an online shop 
 
 ***
 
-### Register Step One:
+### Sign Up Step One:
 <img width="1897" height="882" alt="Image" src="https://github.com/user-attachments/assets/09da96f7-daea-4e23-b58d-2d7f30738f5e" />
 
 
 ***
 
-### Register Step Two:
+### Sign Up Step Two:
 <img width="1891" height="877" alt="Image" src="https://github.com/user-attachments/assets/e5a5c85b-ee84-47ec-ac75-0645754eac5e" />
 
 ***
