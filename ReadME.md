@@ -26,7 +26,7 @@ The project describes the development of a **virtual store** – an online shop 
 <img width="1882" height="866" alt="Image" src="https://github.com/user-attachments/assets/bc8e6e19-846b-4ca2-81c9-66b18c97826e" />
 ### Mobile Friendly:
 
-![mobileFriendly]()
+<img width="1020" height="781" alt="mobile" src="https://github.com/user-attachments/assets/373b0e91-8dbb-4641-8ebb-a3680f5320c5" />
 
 ***
 
