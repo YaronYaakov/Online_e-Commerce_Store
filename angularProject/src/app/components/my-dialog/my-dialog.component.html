@@ -1,0 +1,15 @@
+<h1 mat-dialog-title [ngClass]="this.isError? 'error' :'normal' ">{{this.title}}</h1>
+<hr>
+
+<div mat-dialog-content>
+  <h3 *ngIf="!this.isError" class='normal'>
+    {{this.content}}&nbsp;&nbsp; <a *ngIf="this.isShown" [href]="fileUrl" download="Check.txt">HERE</a>
+  </h3>
+  <h3 *ngIf="this.isError" class='error'>
+    {{this.content}}
+  </h3>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="true">Close</button>
+  <button *ngIf="this.isShown" mat-button [mat-dialog-close]="true" (click)="onBackClicked()">Ok</button>
+</div>

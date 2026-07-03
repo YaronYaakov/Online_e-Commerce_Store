@@ -1,0 +1,86 @@
+.card {
+    height: auto;
+    margin-bottom: 50px;
+    width: 100%;
+    max-width: 200px;
+}
+
+.card-body{
+margin-bottom: 20px;
+
+}
+
+strong {
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+.btn-info {
+    color: black;
+}
+
+.btn-info {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 20px;
+    margin: auto;
+}
+
+.topnav {
+    display: inline-block;
+}
+
+.nav-item {
+    font-size: 50px;
+
+}
+
+nav {
+    background-color: rgb(255, 250, 232);
+}
+
+
+
+#productName {
+    margin: auto;
+    height: 40px;
+    width: 400px;
+}
+
+p {
+    display: inline;
+}
+
+.additionButton {
+    margin: 10px;
+}
+
+.productAmount {
+    background-color: white;
+    width: 100px;
+}
+
+#productDiv {
+    overflow-y: scroll
+}
+
+#add {
+    font-size: 14px;
+    margin: 5px
+}
+
+.additionButton{
+
+    background: rgb(231, 231, 231);
+    border: none;
+}
+@media screen and (max-width: 840px) {
+    .card {
+        height: auto;
+        margin-bottom: 50px;
+        max-width: 700px;
+    }
+
+    
+    
+}

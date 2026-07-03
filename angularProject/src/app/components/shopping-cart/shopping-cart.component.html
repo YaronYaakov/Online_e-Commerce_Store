@@ -1,0 +1,166 @@
+<div id="containerDiv">
+
+    <!-- ShoppingCart Div -->
+    <div class="containerDiv" *ngIf="this.shoppingCartsService.isCustomer">
+        <h1>
+            My Cart
+        </h1>
+
+        <table >
+            <thead *ngIf="!this.shoppingCartsService.isCartEmpty" class=" white-text">
+
+                <!-- A table row -->
+                <tr>
+                    <!-- A table header -->
+                    <th *ngIf="this.shoppingCartsService.isShown" scope="col"></th>
+                    <th scope="col">Unit Price</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Product</th>
+                </tr>
+            </thead>
+
+            <tbody class=" text-dark table-input"><br>
+
+                <tr
+                    *ngFor="let cartItem of this.cartItemsService.cartItems  | byCheckProductsNamePipe :this.shoppingCartsService.productName ">
+                    <td *ngIf="this.shoppingCartsService.isShown"><button
+                            (click)="onDeleteCartItemClicked(cartItem.productId)" class="btn-close">X</button></td>
+                    <td>{{ cartItem.price }} ₪</td>
+                    <td>
+                        <span
+                            [ngStyle]="this.shoppingCartsService.productName == '' ?  {'background-color':'transparent'} : {'background-color':'yellow'}">
+                            {{ cartItem.name}}</span>
+                    </td>
+                    <td>{{ cartItem.quantity}}</td>
+                    <td> <img class="card-img-top" src="http://localhost:3000/uploads/{{cartItem.picture}}"
+                            alt="product image"></td>
+
+                </tr>
+
+            </tbody>
+    
+          
+
+        </table><br />
+
+    
+
+        <span *ngIf="!this.shoppingCartsService.isCartEmpty">Total Price: ₪{{this.cartItemsService.sum.toFixed(2)}} </span>
+        <span *ngIf="this.shoppingCartsService.isCartEmpty">Your Cart Is empty</span><br><br>
+        <button class="btn btn-info" *ngIf="!this.shoppingCartsService.isCartEmpty &&this.shoppingCartsService.isShown"
+        (click)="onDeleteAllCartItemsClicked()">Delete all</button>
+    <button class="btn btn-info" *ngIf="this.shoppingCartsService.isShown" (click)="onOrderClicked()">Order</button>
+    <input dir="ltr" *ngIf="this.ordersService.isCheckSearchShown" placeholder="search for a product..." type="text"
+        name="searchProduct"  [(ngModel)]="this.shoppingCartsService.productName">  
+
+    </div>
+
+
+
+    <!-- Admin Div -->
+    <div class="container" *ngIf="!this.shoppingCartsService.isCustomer">
+        <section id="cover" class="min-vh-100">
+            <div id="cover-caption">
+                <div class="row text-white">
+                    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-left form p-4">
+                        <div class="px-2">
+
+                            <button type="button" name="addNewProduct" class="btn btn-info" (click)="onAddNewProductClicked()">Add New
+                                Product</button>
+
+                            <form id="adminForm" #adminForm="ngForm" [formGroup]="adminFormGroup"
+                                class="justify-content-center">
+
+
+
+                                <div class="form-group">
+                                    <label for="productName ">Product name:</label><br>
+                                    <input [(ngModel)]="this.productsService.product.name" class="form-control"
+                                        class="form-control" id="newProductName" name="newProductName" type="text"
+                                        placeholder="Insert product name..." [formControl]="productName">
+                                    <span class="formValidations"
+                                        *ngIf="productName.errors?.required && (productName.touched || productName.untouched) ">Please
+                                        fill out this field.</span>
+                                    <span class="formValidations"
+                                        *ngIf="productName.errors?.pattern && (productName.touched || productName.untouched)&& !productName.errors?.required ">You
+                                        can insert only letters, spaces and numbers.</span><br>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="productPrice ">Product price:</label><br>
+                                    <input [(ngModel)]="this.productsService.product.price" class="form-control"
+                                        id="newProductPrice" name="newProductPrice" type="text"
+                                        placeholder="Insert product price..." [formControl]="productPrice">
+                                    <span class="formValidations"
+                                        *ngIf="productPrice.errors?.required && (productPrice.touched || productPrice.untouched) ">Please
+                                        fill out this field.</span>
+                                    <span class="formValidations"
+                                        *ngIf="productPrice.errors?.pattern && (productPrice.touched || productPrice.untouched)&& !productPrice.errors?.required ">
+                                        The price must be a valid price.</span><br>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="categories">Categories:</label>
+                                    <select [(ngModel)]="this.productsService.product.category_id" class="form-control"
+                                        name="categories" id="categories" class="form-control"
+                                        [formControl]="productCategory">
+                                        <option value="undefined" selected disabled hidden> Choose a category here
+                                        </option>
+
+                                        <option *ngFor="let category of this.categoriesService.categories"
+                                            value="{{category.category_id}}">
+                                            {{category.category_name}}</option>
+
+                                    </select>
+                                    <span class="formValidations"
+                                        *ngIf="productCategory.errors?.required && (productCategory.touched || productCategory.untouched)">Please
+                                        select one of the options.</span><br>
+                                </div>
+
+
+
+
+
+                                <div id="imageUploadDiv" class="form-group">
+                                    <div>
+                                        <mat-card>
+                                            <mat-card-content>
+                                                <img *ngIf="this.productsService.product.picture" src="http://localhost:3000/uploads/{{
+                                            this.productsService.product.picture
+                                           }}" width="150" height="150" class="col-auto" />
+                                                <ul>
+                                                    <li *ngFor="let file of files">
+                                                    </li>
+                                                    <br />
+                                                </ul>
+                                            </mat-card-content>
+                                            <mat-card-actions>
+                                                <button id="uploadButton" mat-button color="warn"
+                                                    (click)="onUploadImageClicked()">
+                                                    <mat-icon>file_upload</mat-icon>
+
+                                                </button>
+                                                <input value="upload" type="file" #fileUpload id="fileUpload"
+                                                    name="fileUpload" multiple="multiple" accept="image/"
+                                                    id="uploadInput" />
+                                            </mat-card-actions>
+                                        </mat-card>
+
+                                    </div>
+
+                                </div>
+
+
+                                <button id="saveButton"
+                                    [disabled]="adminForm.form.invalid || this.productsService.product.picture == undefined "
+                                    (click)="onSaveClicked()" class="btn">Save</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

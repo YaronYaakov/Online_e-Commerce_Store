@@ -1,0 +1,7 @@
+<div class="container-fluid">
+    <h1 id="mainTitle">General information of the system</h1><br>
+
+    <h3 class="generalDetail">Number of orders submitted in our store : {{this.statistics.ordersAmount}}</h3>
+    <h3 class="generalDetail"> Available products in our store : {{this.statistics.productsAmount}}</h3><br>
+    <h3 id="userGeneralMessage" *ngIf="this.isShown" class=" generalDetail ">Notification: {{this.userMessage}} </h3>
+</div>

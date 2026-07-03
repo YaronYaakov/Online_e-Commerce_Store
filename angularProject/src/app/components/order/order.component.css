@@ -1,0 +1,28 @@
+span {
+    left: 0px;
+    font-size: 13px;
+    color: red;
+}
+
+#date {
+    width: 200px;
+    color: black;
+    font-size: 18px;
+}
+
+.btn {
+    background: white;
+    color: black;
+    border-radius: 8px;
+    width: 80px;
+    height: 50px;
+    margin-right: 15px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+}
+
+.btn:hover {
+    background: black;
+    color: white;
+}

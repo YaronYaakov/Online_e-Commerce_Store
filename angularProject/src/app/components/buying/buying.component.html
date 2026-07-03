@@ -1,0 +1,19 @@
+<section>
+
+   <button *ngIf="this.shoppingCartsService.isShown" class="btn cartButton fa fa-shopping-cart"
+      (click)="onMyCartButtonClicked()" type="button" data-toggle="collapse" data-target="#collapseCart"
+      aria-expanded="false" aria-controls="collapseCart">
+      <mat-icon>shopping_cart</mat-icon> {{isToggleState ? 'Hide cart' : 'Show cart'}}
+   </button>
+
+   <!-- <div class="col-sm-4 flex-grow-0 containerDiv collapse in" id="collapseCart"> -->
+
+   <aside [ngClass]="isToggleState? 'cart-old' :'cart-new'" class="cart-old ">
+      <app-shopping-cart></app-shopping-cart>
+
+   </aside>
+   <!-- </div> -->
+   <main [ngClass]="isToggleState? 'old' : 'new'" class="old  ">
+      <router-outlet></router-outlet>
+   </main>
+</section>

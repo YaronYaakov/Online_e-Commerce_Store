@@ -1,0 +1,15 @@
+    #mainTitle {
+        margin-top: 80px;
+        font-size: 30px;
+        font-weight:bold ;
+    }
+
+    .generalDetail {
+        
+        font-size: 20px;
+    }
+
+    #userGeneralMessage {
+       background: lightgray;
+        display: inline;
+    }

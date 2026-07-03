@@ -1,0 +1,52 @@
+<div class="container">
+
+    <div id="categoriesDiv" class="container">
+        <br>
+        <nav class="navbar navbar-expand-sm">
+            <div class="navbar-nav" *ngFor="let category of this.categoriesService.categories">
+                <div class="nav-item active">
+                    <button class=" btn" id="{{category.category_id}}"
+                        (click)="onClickCategory(category.category_id)">{{category.category_name}}</button>
+                </div>
+            </div>
+            <div class="nav-item active">
+                <button class=" btn " id="all" (click)="onClickCategory(0)">All</button>
+            </div>
+
+        </nav>
+        <nav class="navbar navbar-expand-sm  ">
+            <input type="text" placeholder="seach for a product..." name="productName" id="productName"
+                [(ngModel)]="productName">
+        </nav><br>
+    </div>
+
+
+
+    <div id="productDiv" class="container">
+        <div class="row">
+            <div *ngFor="let product of this.productsService.products | byCategoryPipe :categoryId |byProductNamePipe :productName"
+                class="col-lg-3 col-md-4 col-sm-12">
+                <div class="card">
+                    <img class="card-img-top" src="http://localhost:3000/uploads/{{product.picture}}"
+                        alt="product image">
+                    <div class="card-body">
+
+                        <strong>{{product.name}}</strong><br>
+                        <p id="price">Price: ₪ {{product.price}}</p><br>
+                        <button class=" additionButton" *ngIf="this.shoppingCartService.isCustomer" id="button{{product.name}}"
+                            (click)="onAddAmountClicked(product)" >+</button>
+                        <span *ngIf="this.shoppingCartService.isCustomer" id="{{product.name}}"
+                            class="productAmount">{{product.amount}}</span>
+                        <button class=" additionButton" *ngIf="this.shoppingCartService.isCustomer" id="button{{product.name}}"
+                            (click)="onSubstrctAmountClicked(product)" >-</button>
+
+
+                        <button class="additionButton" id="add" (click)="onAddToCartClicked(product)"
+                            >{{this.shoppingCartService.isCustomer ? 'Add':'Edit Product'}}</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

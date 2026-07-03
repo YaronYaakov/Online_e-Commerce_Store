@@ -1,0 +1,21 @@
+button {
+    margin: auto
+}
+
+h3 {
+    text-align: center;
+    font-size: 18px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.error {
+    color: red;
+    text-align: center;
+}
+
+.normal {
+    color: black;
+}

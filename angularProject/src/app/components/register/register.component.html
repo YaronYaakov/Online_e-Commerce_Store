@@ -1,0 +1,147 @@
+<br>
+<div class="container">
+    <h2>Sign in - Step {{this.formNumber}}</h2>
+
+    <section id="cover" class="min-vh-100">
+        <div id="cover-caption">
+            <div class="container">
+                <div class="row text-white">
+                    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-left form p-4">
+                        <div class="px-2">
+
+                            <!-- register first form -->
+                            <form #registerFormStepfirst="ngForm" [formGroup]="registerFormStep1" *ngIf="!this.isShown"
+                                class=" justify-content-center" (submit)="onClickedNextStep()">
+                                <div class=" form-group">
+                                    <label for="userId">Insert Id:</label><br>
+                                    <input class="form-control" id="userId" type="text" placeholder="Insert your id..."
+                                        name="userId" [formControl]="userId">
+                                    <span
+                                        *ngIf="userId.errors?.required && (userId.touched || userId.untouched) ">Please
+                                        fill
+                                        out this field.</span>
+                                    <span
+                                        *ngIf="userId.errors?.pattern && (userId.touched || userId.untouched) && !userId.errors?.required">The
+                                        id is incorrect.</span><br>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Insert email:</label><br>
+                                    <input class="form-control" type="email" id="userEmail"
+                                        placeholder="Insert your email... " name="userEmail" [formControl]="userEmail">
+                                    <span
+                                        *ngIf="userEmail.errors?.required &&( userEmail.touched || userEmail.untouched)">Please
+                                        fill out this field.</span>
+                                    <span
+                                        *ngIf=" userEmail.errors?.pattern && ( userEmail.touched || userEmail.untouched)&& !userEmail.errors?.required">
+                                        Email must be a valid email address.</span><br>
+                                </div>
+
+                                <div class="form-group ">
+                                    <label for=" password ">Insert password:</label><br>
+                                    <input class="form-control " type="password" id="userPassword "
+                                        placeholder="Insert your password... " name="userPassword"
+                                        [formControl]="userPassword">
+                                    <span
+                                        *ngIf="userPassword.errors?.required && (userPassword.touched || userPassword.untouched ) ">Please
+                                        fill out this field.</span>
+                                    <span
+                                        *ngIf="userPassword.errors?.pattern && (userPassword.touched || userPassword.untouched )&& !userPassword.errors?.required ">Must
+                                        contain at least one number and one uppercase and lowercase letter, and at least
+                                        6
+                                        up to 8 characters.</span><br>
+                                </div>
+
+                                <div class="form-group ">
+                                    <label for="userConfirmPassword">confirm password:</label><br>
+                                    <input class="form-control" type="password" id="userConfirmPassword"
+                                        placeholder="confirm your password..." name="userConfirmPassword "
+                                        [formControl]="userConfirmPassword">
+                                    <span
+                                        *ngIf="!this.isNotEqual &&userConfirmPassword.errors?.required && (userConfirmPassword.touched || userConfirmPassword.untouched) ">Confirm
+                                        Password is required.</span>
+                                    <span
+                                        *ngIf="!this.isNotEqual &&userConfirmPassword.errors?.pattern && (userConfirmPassword.touched || userConfirmPassword.untouched)&& !userConfirmPassword.errors?.required ">Must
+                                        contain at least one number and one uppercase and lowercase letter, and at least
+                                        6
+                                        up to 8 characters.</span>
+                                    <span *ngIf="this.isNotEqual ">Passwords must match.</span>
+                                </div>
+                                <br>
+                                <div class="text-center ">
+                                    <button [disabled]="registerFormStepfirst.form.invalid" class="registerBtn"
+                                        class="btn btn-primary">Next Step</button><br>
+                                </div>
+                            </form>
+
+                            <!-- register second form -->
+                            <form #registerFormStepsecond="ngForm" [formGroup]="registerFormStep2" *ngIf="this.isShown"
+                                class="justify-content-center " (submit)="onSubmit() ">
+                                <div class=" form-group">
+                                    <label for="userFirstName">Insert first name:</label><br>
+                                    <input class="form-control " id="userFirstName " type="text "
+                                        placeholder="Insert your first name... " name="userFirstName "
+                                        [formControl]="userFirstName ">
+                                    <span
+                                        *ngIf="userFirstName.errors?.required && (userFirstName.touched || userFirstName.untouched) ">Please
+                                        fill out this field.</span>
+                                    <span
+                                        *ngIf="userFirstName.errors?.pattern &&(userFirstName.touched || userFirstName.untouched)&& !userFirstName.errors?.required ">You
+                                        can insert only letters.</span><br>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="userLastName">Insert last name:</label><br>
+                                    <input class="form-control" id="userLastName" type="text "
+                                        placeholder="Insert your last name... " name="userLastName"
+                                        [formControl]="userLastName">
+                                    <span
+                                        *ngIf="userLastName.errors?.required && (userLastName.touched || userLastName.untouched) ">Please
+                                        fill out this field.</span>
+                                    <span
+                                        *ngIf="userLastName.errors?.pattern && (userLastName.touched || userLastName.untouched)&& !userLastName.errors?.required ">You
+                                        can insert only letters.</span><br>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="names">Select city name:</label>
+                                    <select name="cities" id="cities" class="form-control" [formControl]="userCity">
+                                        <option value="" selected disabled hidden> Choose a city here</option>
+                                        <option *ngFor="let city of this.citiesService.cities" value="{{city.city_id}}">
+                                            {{city.city_name}}</option>
+
+                                    </select>
+                                    <span
+                                        *ngIf="userCity.errors?.required && (userCity.touched || userCity.untouched)">Please
+                                        select one of the options.</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="userStreet ">Insert street:</label><br>
+                                    <input class="form-control" id="userStreet" type="text"
+                                        placeholder="Insert your street..." name="userStreet"
+                                        [formControl]="userStreet">
+                                    <span
+                                        *ngIf="userStreet.errors?.required && (userStreet.touched || userStreet.untouched) ">Please
+                                        fill out this field.</span>
+                                    <span
+                                        *ngIf="userStreet.errors?.pattern && (userStreet.touched || userStreet.untouched)&& !userStreet.errors?.required ">You
+                                        can insert only letters, spaces and numbers.</span><br>
+                                </div>
+
+
+
+                                <div class="text-center"><br>
+                                    <button [disabled]="registerFormStepsecond.form.invalid"
+                                        class="btn btn-primary">Next Step</button>&nbsp;
+                                    <button (click)="onBackClicked()" class="btn btn-primary">back</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

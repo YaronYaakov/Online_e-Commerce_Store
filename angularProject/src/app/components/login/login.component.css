@@ -1,0 +1,48 @@
+.container-fluid {
+    margin-top: 50px
+}
+
+.userInput {
+    width: 400px;
+    font-size: large;
+    margin-top: 10px;
+    padding: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h1 {
+    margin: 0 auto;
+    width: 100%;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+form {
+    column-span: all;
+    width: 100%;
+}
+
+span {
+    font-size: 15px;
+    color: red;
+}
+
+#loginBtn {
+    display: inline;
+}
+
+.btn-primary {
+    margin-right: 20px;
+}
+
+@media screen and (max-width: 820px) {
+    .container-fluid {
+        padding-top: 90px;
+    }
+    h1 {
+        font-size: 18px;
+    }
+    .userInput {
+        width: 90%;
+    }
+}

@@ -1,0 +1,33 @@
+<div class="container-fluid">
+
+    <h1>User login</h1>
+    <form #login="ngForm" [formGroup]="loginForm" (submit)="onLoginClickd() ">
+        <input class="userInput" placeholder="Insert your email..." type="email" name="userName"
+            [formControl]="userEmail" /> <br /><br>
+        <span *ngIf="userEmail.errors?.required &&( userEmail.touched || userEmail.untouched) ">Please fill out this
+            field.</span>
+        <span
+            *ngIf=" userEmail.errors?.pattern && ( userEmail.touched || userEmail.untouched)&& !userEmail.errors?.required ">
+            Email must be a valid email address.</span><br>
+
+        <input class="userInput" placeholder="Insert your password..." type="password" name="password"
+            [formControl]="userPassword" /><br><br>
+        <span *ngIf="userPassword.errors?.required && (userPassword.touched || userPassword.untouched ) ">Please fill
+            out this field.</span>
+        <span
+            *ngIf="userPassword.errors?.pattern && (userPassword.touched || userPassword.untouched )&& !userPassword.errors?.required ">Must
+            contain at least one number and one uppercase and lowercase letter, and at least 6 up to 8
+            characters.</span><br> <br>
+
+        <button [disabled]="login.form.invalid || this.usersService.getIsLoginned()"
+            class="btn btn-primary">Login</button>
+        <button [disabled]=" !this.usersService.getIsLoginned() " type="button" class="btn btn-primary"
+            (click)="onDisconnectedClicked()">Disconnect</button>
+
+    </form>
+
+    <br>
+    <button (click)="onPassBuyingClicked() " class="btn btn-info ">{{this.usersService.buttonValue}}</button>
+    <button type="button" class="btn btn-link" (click)="onRegisterClicked()">sign up</button>
+
+</div>
