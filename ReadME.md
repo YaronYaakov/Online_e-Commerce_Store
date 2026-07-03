@@ -40,7 +40,7 @@ The project describes the development of a **virtual store**  – an online shop
 
 ***
 
-### Shoppping cart and Products:
+### Shoppping Cart and Products Page:
 * The cart can be shown or hidden
 <img width="1895" height="876" alt="Image" src="https://github.com/user-attachments/assets/45b704ae-bb44-4ed9-b35a-501bc58d735c" />
 
