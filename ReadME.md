@@ -1,18 +1,28 @@
 # Online E-Commerce Store
 
-The project describes the development of a **virtual store** – an online shop for selling food and grocery products through a self-service model. The **client side** was developed with **Angular 21**, providing a dynamic and responsive user interface for managing the shopping experience, while the **server side** was built with **Node.js** and **Express** to handle requests, process data, and connect the client with external services, resulting in a modern, efficient, and web-based system.
+The project describes the development of a **virtual store**  – an online shop for selling food and grocery products through a self-service model. The **client side** was developed in **Angular 21**, providing a dynamic and responsive user interface for managing the shopping experience, while the **server side** was built in **Node.js 22** and **Express.js** to handle requests, user authentication, user authorization, manipulate the MySql Database, and connect the client with external services, resulting in a modern, efficient, and web-based system.
 
 ## Topics:
 
-* HTML + CSS
+* HTML5 + CSS3
   - HTML5 Structure
   - Bootstrap design
+  - CSS selectors
   
-* Angular
-
-* NodeJS
+* Angular 21
+  - Standalone components
+  - signals
+  - UI Material
+  - Pipelines
+  - Guards
+  - Structure and attribute directives
+    
+* NodeJS 22
   - Using express
   - Restfull App
+  - Middlewares
+  - Login filter
+  - Authentication by JWT
   
 * MySQL
   - Design & create schema
