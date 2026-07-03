@@ -16,6 +16,8 @@ The project describes the development of a **virtual store**  – an online shop
   - Pipelines
   - Guards
   - Structure and attribute directives
+  - Services
+  - Routing mechanism
     
 * NodeJS 22
   - Using express
