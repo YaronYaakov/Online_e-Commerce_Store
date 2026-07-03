@@ -83,3 +83,11 @@ The project describes the development of a **virtual store**  – an online shop
 * You can edit a product or add a new one.
 <img width="1881" height="877" alt="admin" src="https://github.com/user-attachments/assets/e10ad661-e7dc-498f-93df-45504eeedcd5" />
 
+### Demo Video:
+## Customer
+https://github.com/user-attachments/assets/f38876e3-4d90-423d-ad16-76c47a582421
+
+## Admin:
+https://github.com/user-attachments/assets/90378960-5377-4f51-859a-5612bfbd5739
+
+
