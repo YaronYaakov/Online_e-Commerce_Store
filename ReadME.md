@@ -23,10 +23,7 @@ The project describes the development of a **virtual store** – an online shop 
 
 ### Home Page:
 
-![homepage](<img width="1882" height="866" alt="login" src="https://github.com/user-attachments/assets/760ba383-2482-442d-b342-cbfc145d40a7" />
-)
-
-***
+<img width="1897" height="876" alt="Image" src="https://github.com/user-attachments/assets/fcd22941-c92a-439d-a779-8049627e5aec" />***
 
 ### Mobile Friendly:
 
