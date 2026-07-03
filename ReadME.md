@@ -66,8 +66,7 @@ The project describes the development of a **virtual store** – an online shop 
 ***
 
 ### Register Step Two:
-![registerStepTwo](<img width="1891" height="877" alt="Image" src="https://github.com/user-attachments/assets/e5a5c85b-ee84-47ec-ac75-0645754eac5e" />
-)
+<img width="1891" height="877" alt="Image" src="https://github.com/user-attachments/assets/e5a5c85b-ee84-47ec-ac75-0645754eac5e" />
 
 ***
 
