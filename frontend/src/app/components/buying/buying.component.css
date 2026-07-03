@@ -1,0 +1,124 @@
+section {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+button {
+    margin-top: 0px;
+}
+
+main {
+    min-height: 100px;
+    width: 70%;
+    box-sizing: border-box;
+}
+
+aside {
+    min-height: 100%;
+    width: 30%;
+    box-sizing: border-box;
+}
+
+.cartButton {
+    position: absolute;
+    left: 20px;
+    top: 559px;
+    z-index: 99;
+    transition: transform 0.2s ease, bottom 0.2s ease, left 0.2s ease, right 0.2s ease;
+}
+
+.old {
+    width: 70%;
+}
+
+.new {
+    width: 100%;
+}
+
+.cart-old {
+    display: block;
+}
+
+.cart-new {
+    display: none;
+}
+
+.cartButton:hover {
+    transform: scale(1.1);
+}
+
+@media only screen and (max-width: 1024px) {
+    main {
+        width: 65%;
+    }
+    aside {
+        width: 35%;
+    }
+}
+
+@media only screen and (max-width: 840px) {
+    section {
+        margin-top: 80px;
+        width: 100%;
+        flex-direction: column;
+        padding: 0 15px;
+    }
+    
+    button {
+        margin-top: 10px;
+        margin-left: 0px;
+        width: 100%;
+    }
+    
+    main {
+        width: 100%;
+    }
+    
+    aside {
+        width: 100%;
+        min-height: auto;
+        margin-top: 20px;
+    }
+    
+    .old {
+        width: 100%;
+    }
+
+    .cartButton {
+        position: fixed;
+        top: auto;
+        bottom: 20px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        max-width: 350px;
+        box-sizing: border-box;
+        text-align: center;
+        padding: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .cartButton:hover {
+        transform: translateX(-50%) scale(1.05);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    section {
+        margin-top: 60px;
+        padding: 0 10px;
+    }
+
+    .cartButton {
+        bottom: 15px;
+        width: calc(100% - 20px);
+        max-width: none;
+    }
+}

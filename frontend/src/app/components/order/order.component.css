@@ -1,0 +1,166 @@
+.form-container {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #c0bfbf;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+h1 {
+  color: #050507;
+  font-size: clamp(18px, 4vw, 24px);
+  background-color: rgb(181, 168, 255);
+  padding: 15px;
+  margin: -30px -30px 30px -30px;
+  text-align: center;
+}
+
+.form-label {
+  color: rgb(0, 0, 0);
+  text-align: left;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.text-danger {
+  font-size: 13px;
+  color: red;
+  display: block;
+  margin-top: 4px;
+}
+
+#date.w-100 {
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.btn-primary-custom,
+.btn-secondary-custom {
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.btn-secondary-custom {
+  background-color: #000000;
+  color: white;
+}
+
+.btn-secondary-custom:hover {
+  background-color: #dddfeb;
+  color: #2e2f37;
+}
+
+.btn-primary-custom {
+  background-color: #050507;
+  color: white;
+}
+
+.btn-primary-custom:not([disabled]):hover {
+  background-color: #000000;
+  box-shadow: 0 4px 8px rgba(78, 115, 223, 0.3);
+}
+
+.btn-primary-custom[disabled] {
+  background-color: #eaecf4;
+  color: #beecff;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+#cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: calc(100vh - 120px);
+  width: 100%;
+  padding: 80px 20px 40px 20px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  #cover {
+    padding: 60px 15px 30px 15px;
+    min-height: auto;
+  }
+  
+  .form-container {
+    max-width: 95%;
+    padding: 25px;
+  }
+
+  h1 {
+    margin: -25px -25px 25px -25px;
+    padding: 14px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #cover {
+    padding: 40px 10px 20px 10px;
+  }
+
+  .form-container {
+    padding: 20px;
+    border-radius: 6px;
+    max-width: 100%;
+  }
+
+  h1 {
+    margin: -20px -20px 20px -20px;
+    padding: 12px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-primary-custom,
+  .btn-secondary-custom {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  #cover {
+    padding: 30px 5px 10px 5px;
+  }
+
+  .form-container {
+    padding: 15px;
+  }
+
+  h1 {
+    margin: -15px -15px 15px -15px;
+    padding: 10px;
+  }
+  
+  .btn-primary-custom,
+  .btn-secondary-custom {
+    font-size: 15px;
+    padding: 10px;
+  }
+}

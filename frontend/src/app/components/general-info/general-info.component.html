@@ -1,0 +1,32 @@
+<div class="container-fluid p-0 d-flex flex-column" style="height: 100vh; overflow: hidden;">
+
+  <div class="banner-wrapper">
+
+    <div class="image-scroll-box">
+      <img src="images/info.jpg" alt="info" class="scrolling-inside-img">
+    </div>
+
+    <div class="dark-overlay"></div>
+
+  </div>
+
+  <div class="container mt-4 bg-white flex-grow-1">
+    <div class="row">
+      <div class="col-sm-4">
+        <img class="logo-general-info" src="images/product-management.png" alt="product" />
+        <p>We have <span>{{statistics().productsCount}}</span> products in our store</p>
+      </div>
+      <div class="col-sm-4">
+        <img class="logo-general-info" src="images/order-managment.png" alt="product" />
+        <p> <span>{{statistics().ordersCount}}</span> orders have been done</p>
+      </div>
+      <div class="col-sm-4">
+        <img [className]="userMessage() === '' ? 'logo-general-info' : 
+                  (userMessage() === 'Welcome to your first shopping' ? 'new-shopping-info' : 'info-img')"
+          src="images/infoLogo.png" alt="product" />
+        <p>{{userMessage() == "" ? "There are no new notifications at this time" :userMessage()}}</p>
+      </div>
+    </div>
+  </div>
+
+</div>

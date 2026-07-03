@@ -1,0 +1,27 @@
+<div mat-dialog-title [class.is-error]="isError">
+  <h1 [class.error]="isError" [class.normal]="!isError">
+    {{ title }}
+  </h1>
+  <button class="close-x-btn" [mat-dialog-close]="true">&times;</button>
+</div>
+
+<div mat-dialog-content>
+  @if (!isError) {
+    <h3 class="normal-text">
+      {{ content }}&nbsp;&nbsp;
+      @if (isShown) {
+        <a [href]="fileUrl" download="Check.txt">HERE</a>
+      }
+    </h3>
+  } @else {
+    <h3 class="error-text">
+      {{ content }}
+    </h3>
+  }
+</div>
+
+@if (isShown) {
+  <div mat-dialog-actions>
+    <button class="btn-ok" [mat-dialog-close]="true" (click)="onBackClick()">Ok</button>
+  </div>
+}

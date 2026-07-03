@@ -1,0 +1,246 @@
+.container.py-4 {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 140px);  
+  background-color: #f8f9fa !important;
+  margin-top: 10px;
+  margin-bottom: 0px !important;
+  padding-bottom: 20px !important;
+  width: 100%;
+  overflow: hidden;  
+  box-sizing: border-box;
+}
+
+.category-section {
+  background-color: #c6c5ff;
+  flex-shrink: 0;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;   
+  gap: 15px;              
+  padding: 15px;          
+  margin-top: 25px; 
+}
+
+.categories-wrapper {
+  display: flex;
+  justify-content: center; 
+  flex-wrap: wrap;        
+  gap: 10px;              
+}
+
+.search-input {
+  width: 100%;             
+  max-width: 350px;       
+  border-radius: 20px;
+  padding: 8px 16px;
+  border: 1px solid #ced4da;
+  text-align: center;     
+  box-sizing: border-box;
+}
+
+.search-input:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.15);
+}
+
+#productDiv {
+  width: 100%;
+  background: transparent !important; 
+  flex-grow: 1; 
+  overflow-y: auto !important; 
+  overflow-x: hidden;
+  padding: 15px 5px 30px 5px;   
+  box-sizing: border-box;
+}
+
+#productDiv::-webkit-scrollbar {
+  width: 8px;
+}
+
+#productDiv::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+#productDiv::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+#productDiv::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.product-card {
+  background-color: #ffffff !important; 
+  border: 1px solid #efefef;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 250px; 
+  height: 270px; 
+  margin: 0 auto; 
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08) !important;
+}
+
+.img-container {
+  height: 110px;
+  background-color: #ffffff; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 10px;
+  flex-shrink: 0;
+}
+
+.card-img-top {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain; 
+}
+
+.product-card .card-body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  flex-grow: 1;
+  overflow: hidden; 
+}
+
+.category-btn {
+  background-color: #f8f9fa;
+  color: #495057;
+  font-weight: 500;
+  border: 1px solid #e9ecef;
+  border-radius: 20px;
+  padding: 6px 18px;
+  transition: all 0.2s ease;
+}
+
+.category-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.btn-all {
+  background-color: #212529;
+  color: #ffffff;
+}
+
+.btn-all:hover {
+  background-color: white;
+  color: black;
+}
+
+.product-title {
+  text-transform: capitalize;
+  font-size: 1rem;  
+  color: #212529;
+  font-weight: 600;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+}
+
+.price-text {
+  font-size: 0.95rem;
+  color: #000000;   
+  font-weight: bolder;
+  margin: 2px 0 !important;
+}
+
+.quantity-counter {
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  padding: 2px;
+  border: 1px solid #f1f3f5;
+  margin-bottom: 5px !important;
+}
+
+.quantity-btn {
+  background: #ffffff;
+  width: 26px;  
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 0;
+  color: black;
+  transition: all 0.15s ease;
+  border: 1px solid #ced4da;
+  cursor: pointer;
+}
+
+.quantity-btn:hover {
+  background-color: #e9ecef;
+}
+
+.amount-value {
+  font-weight: 600;
+  color: #212529;
+  font-size: 0.9rem;
+}
+
+.main-action-btn {
+  background-color: #ff3e3e; 
+  color: white !important;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.9rem;
+  transition: background-color 0.15s ease;
+  cursor: pointer;
+  width: 100%;
+}
+
+.main-action-btn:hover {
+  background-color: #d90000;
+  color: white !important;
+}
+
+@media screen and (max-width: 768px) {
+  .container.py-4 {
+    height: auto;
+    min-height: calc(100vh - 100px);
+    overflow: visible;
+  }
+
+  #productDiv {
+    overflow-y: visible !important;
+  }
+
+  .category-section {
+    padding: 10px;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .categories-wrapper {
+    gap: 6px;
+  }
+
+  .category-btn {
+    padding: 4px 12px;
+    font-size: 13px;
+  }
+
+  .search-input {
+    max-width: 100%;
+    font-size: 15px;
+  }
+}

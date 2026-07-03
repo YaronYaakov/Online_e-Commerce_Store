@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <nav class="topnav">
+    <img src="/images/logo.jpg" id="logo" alt="logo">
+    <a routerLink="/home" routerLinkActive="the-chosen-one">Home</a>
+    <a routerLink="/about" routerLinkActive="the-chosen-one">About</a>
+    <a routerLink="/generalInfo" routerLinkActive="the-chosen-one">General info</a>
+
+    <div class="contact-container">
+      <p id="contact-info">
+        contact us: Carrefour@gmail.com<br>
+        +972 054 5454875<br>
+        <span id = "user-name"><b>{{usersService.userName()}}</b></span>
+      </p>
+    </div>
+  </nav>
+</div>

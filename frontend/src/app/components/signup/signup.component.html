@@ -1,0 +1,151 @@
+<div class="container d-flex flex-column align-items-center pt-5 pb-5">
+    <div class="card form-card p-4 w-100 shadow">
+        <h2 class="text-center mb-4 text-white">Sign Up</h2>
+
+        <div class="px-2">
+            @if (!isSecondFormShown()) {
+            <form [formGroup]="registerFormStep1" (ngSubmit)="onNextStepClick()">
+
+                <div class="form-group mb-3">
+                    <label for="userId" class="form-label text-secondary fw-bold">Insert Id:</label>
+                    <input class="form-control" id="userId" type="text" placeholder="Insert your id..."
+                        formControlName="userId">
+
+                    <div class="error-container">
+                        @if (registerFormStep1.get('userId')?.touched) {
+                        @if (registerFormStep1.get('userId')?.hasError('required')) { <span class="error-text">Please
+                            fill out this field.</span> }
+                        @if (registerFormStep1.get('userId')?.hasError('pattern')) { <span class="error-text">The id is
+                            incorrect.</span> }
+                        }
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="userEmail" class="form-label text-secondary fw-bold">Insert email:</label>
+                    <input class="form-control" type="email" id="userEmail" placeholder="Insert your email..."
+                        formControlName="userEmail">
+
+                    <div class="error-container">
+                        @if (registerFormStep1.get('userEmail')?.touched) {
+                        @if (registerFormStep1.get('userEmail')?.hasError('required')) { <span class="error-text">Please
+                            fill out this field.</span> }
+                        @if (registerFormStep1.get('userEmail')?.hasError('pattern')) { <span class="error-text">Email
+                            must be a valid address.</span> }
+                        }
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="userPassword" class="form-label text-secondary fw-bold">Insert password:</label>
+                    <input class="form-control" type="password" id="userPassword" placeholder="Insert your password..."
+                        formControlName="userPassword">
+
+                    <div class="error-container">
+                        @if (registerFormStep1.get('userPassword')?.touched) {
+                        @if (registerFormStep1.get('userPassword')?.hasError('required')) { <span
+                            class="error-text">Please fill out this field.</span> }
+                        @if (registerFormStep1.get('userPassword')?.hasError('pattern')) { <span class="error-text">Must
+                            contain at least one number, one uppercase and lowercase letter, and 6 to 8
+                            characters.</span> }
+                        }
+                    </div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="userConfirmPassword" class="form-label text-secondary fw-bold">Confirm password:</label>
+                    <input class="form-control" type="password" id="userConfirmPassword"
+                        placeholder="Confirm your password..." formControlName="userConfirmPassword">
+
+                    <div class="error-container">
+                        @if (registerFormStep1.get('userConfirmPassword')?.touched) {
+                        @if (!this.isNotEqual && registerFormStep1.get('userConfirmPassword')?.hasError('required')) {
+                        <span class="error-text">Confirm Password is required.</span> }
+                        @if (!this.isNotEqual && registerFormStep1.get('userConfirmPassword')?.hasError('pattern')) {
+                        <span class="error-text">Must contain at least one number, one uppercase and lowercase letter,
+                            and 6 to 8 characters.</span> }
+                        }
+                        @if (isNotEqual()) { <span class="error-text">Passwords must match.</span> }
+                    </div>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" [disabled]="registerFormStep1.invalid" class="btn btn-primary pt-2 pb-2">Next
+                        Step</button>
+                </div>
+            </form>
+            }
+
+            @if (isSecondFormShown()) {
+            <form [formGroup]="registerFormStep2" (ngSubmit)="onSubmit()">
+
+                <div class="form-group mb-3">
+                    <label for="userFirstName" class="form-label text-secondary fw-bold">Insert first name:</label>
+                    <input class="form-control" id="userFirstName" type="text" placeholder="Insert your first name..."
+                        formControlName="userFirstName">
+
+                    <div class="error-container">
+                        @if (registerFormStep2.get('userFirstName')?.touched) {
+                        @if (registerFormStep2.get('userFirstName')?.hasError('required')) { <span
+                            class="error-text">Please fill out this field.</span> }
+                        @if (registerFormStep2.get('userFirstName')?.hasError('pattern')) { <span
+                            class="error-text">Only letters allowed.</span> }
+                        }
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="userLastName" class="form-label text-secondary fw-bold">Insert last name:</label>
+                    <input class="form-control" id="userLastName" type="text" placeholder="Insert your last name..."
+                        formControlName="userLastName">
+
+                    <div class="error-container">
+                        @if (registerFormStep2.get('userLastName')?.touched) {
+                        @if (registerFormStep2.get('userLastName')?.hasError('required')) { <span
+                            class="error-text">Please fill out this field.</span> }
+                        @if (registerFormStep2.get('userLastName')?.hasError('pattern')) { <span class="error-text">Only
+                            letters allowed.</span> }
+                        }
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="cities" class="form-label text-secondary fw-bold">Select city name:</label>
+                    <select id="cities" class="form-select" formControlName="userCity">
+                        <option value="" selected disabled hidden>Choose a city here</option>
+                        @for (city of citiesService.cities(); track city.id) {
+                        <option [value]="city.id">{{city.name}}</option>
+                        }
+                    </select>
+                    <div class="error-container">
+                        @if (registerFormStep2.get('userCity')?.touched &&
+                        registerFormStep2.get('userCity')?.hasError('required')) { <span class="error-text">Please
+                            select one of the options.</span> }
+                    </div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="userStreet" class="form-label text-secondary fw-bold">Insert street:</label>
+                    <input class="form-control" id="userStreet" type="text" placeholder="Insert your street..."
+                        formControlName="userStreet">
+
+                    <div class="error-container">
+                        @if (registerFormStep2.get('userStreet')?.touched) {
+                        @if (registerFormStep2.get('userStreet')?.hasError('required')) { <span
+                            class="error-text">Please fill out this field.</span> }
+                        @if (registerFormStep2.get('userStreet')?.hasError('pattern')) { <span class="error-text">You
+                            can insert only letters, spaces and numbers.</span> }
+                        }
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2 justify-content-center">
+                    <button type="button" (click)="onBackClick()" class="btn btn-secondary flex-grow-1">Back</button>
+                    <button type="submit" [disabled]="registerFormStep2.invalid"
+                        class="btn btn-primary flex-grow-1">Submit</button>
+                </div>
+            </form>
+            }
+        </div>
+    </div>
+</div>

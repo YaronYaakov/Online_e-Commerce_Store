@@ -1,0 +1,54 @@
+<div class=div class="container-fluid min-vh-100 login-page-container">
+    <div id="loginDiv">
+
+        <img src="/images/avatar.png" id="logo" alt="logo">
+
+        <form [formGroup]="loginForm" (ngSubmit)="onLoginClick()">
+
+            <div class="input-group">
+                <div class="input-field-wrapper">
+                    <img src="images/username.png" class="input-icon" alt="user">
+                    <input class="userInput" placeholder="Insert your email..." type="email"
+                        formControlName="userEmail" />
+                </div>
+
+                @if (loginForm.controls.userEmail.touched && loginForm.controls.userEmail.hasError('required')) {
+                <span class="error-container">Please fill out this field.</span>
+                }
+                @if (loginForm.controls.userEmail.touched && loginForm.controls.userEmail.hasError('pattern')) {
+                <span class="error-container">Email must be a valid email address.</span>
+                }
+            </div>
+
+            <div class="input-group">
+                <div class="input-field-wrapper">
+                    <img src="images/password.png" class="input-icon" alt="lock">
+                    <input class="userInput" placeholder="Insert your password..." type="password"
+                        formControlName="userPassword" />
+                </div>
+
+                @if (loginForm.controls.userPassword.touched && loginForm.controls.userPassword.hasError('required')) {
+                <span class="error-container">Please fill out this field.</span>
+                }
+                @if (loginForm.controls.userPassword.touched && loginForm.controls.userPassword.hasError('pattern')) {
+                <span class="error-container">Must contain at least one number, uppercase and lowercase letter, and be
+                    6-8
+                    characters long.</span>
+                }
+            </div>
+
+            <div class="form-actions">
+                <input type="submit" id="submitBtn" [value]="usersService.loginButtonValue()"
+                    [disabled]="loginForm.invalid || isLoginInProgress()" />
+
+                <input type="button" class="btn btn-link" [value]="usersService.signUpButtonValue()"
+                    (click)="onSignUpClick()" />
+            </div>
+
+        </form>
+
+        <img src="images/spinner.gif" alt="connected"
+            [class]="isLoginInProgress() ? 'spinner-active' : 'spinner-hidden'" />
+
+    </div>
+</div>

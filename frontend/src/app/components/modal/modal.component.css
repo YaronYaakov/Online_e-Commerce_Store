@@ -1,0 +1,92 @@
+[mat-dialog-title] {
+  margin: 0;
+  padding: 24px 20px;
+  background-color: #2e7d32; 
+  position: relative;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+[mat-dialog-title].is-error {
+  background-color: #c62828; 
+}
+
+[mat-dialog-title] h1 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+}
+
+.close-x-btn {
+  position: absolute;
+  top: 12px; 
+  right: 14px;  
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.close-x-btn:hover {
+  color: #ffffff;
+}
+
+[mat-dialog-content] {
+  padding: 28px 20px !important;
+  margin: 0 !important;
+  min-width: 280px;
+  max-width: 320px;
+  text-align: center;
+}
+
+.normal-text, .error-text {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  font-weight: 400;
+  color: #333333;
+}
+
+[mat-dialog-actions] {
+  padding: 0 20px 20px 20px !important;
+  margin: 0 !important;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-ok {
+  background-color: hsl(123, 48%, 64%);
+  border: 1px solid hsl(123, 48%, 64%);
+  color: white;
+  padding: 8px 24px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+[mat-dialog-title].is-error ~ [mat-dialog-actions] .btn-ok {
+  background-color: #c62828;
+  border-color: #c62828;
+}
+
+.btn-ok:hover {
+  filter: brightness(0.9);
+}
+
+a[download] {
+  color: #2e7d32;
+  text-decoration: none;
+  font-weight: 600;
+}

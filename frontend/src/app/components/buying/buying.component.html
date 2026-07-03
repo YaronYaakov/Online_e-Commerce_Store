@@ -1,0 +1,16 @@
+<section>
+  <aside [class.cart-old]="isToggleState()" [class.cart-new]="!isToggleState()">
+    <app-shopping-cart></app-shopping-cart>
+  </aside>
+  @if (shoppingCartsService.isShown()) {
+  <button class="btn cartButton fa fa-shopping-cart" (click)="onMyCartButtonClick()">
+    <mat-icon>shopping_cart</mat-icon>
+    {{ isToggleState() ? 'Hide' : 'Show' }}
+  </button>
+  }
+
+
+  <main [class.old]="isToggleState()" [class.new]="!isToggleState()">
+    <router-outlet></router-outlet>
+  </main>
+</section>

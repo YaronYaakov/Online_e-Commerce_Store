@@ -1,0 +1,63 @@
+.banner-wrapper {
+  position: relative;
+  height: 75vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-scroll-box {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.image-scroll-box::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.scrolling-inside-img {
+  width: 100%;
+  height: 180%;
+  display: block;
+  object-fit: cover;
+}
+
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(24, 24, 31, 0.6);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.logo-general-info,
+.info-img,
+.new-shopping-info {
+  width: 20%;
+  max-width: 100px;
+  height: auto;
+  display: block;
+  margin: 20px auto 0 auto;
+}
+
+p {
+  direction: ltr;
+  text-align: center;
+  white-space: normal;
+  font-weight: bold;
+  margin: 10px auto;
+}
+
+@media screen and (max-width: 768px) {
+  .logo-general-info,
+  .info-img,
+  .new-shopping-info {
+    width: 25%;
+    max-width: 80px;
+  }
+}

@@ -1,0 +1,132 @@
+<div id="containerDiv">
+
+    @if (shoppingCartsService.isCustomer()) {
+    <div class="containerDiv">
+        <h1>My Cart</h1>
+
+        @if (ordersService.isCheckSearchShown()) {
+        <div class="search-wrapper">
+            <input dir="ltr" class="form-control search-input" placeholder="Search for a product..." type="text"
+                [ngModel]="shoppingCartsService.productName()"
+                (ngModelChange)="shoppingCartsService.productName.set($event)">
+        </div>
+        }
+
+        <table>
+            <thead class="table-dark-headers">
+                <tr>
+                    @if (shoppingCartsService.isShown()) { <th scope="col"></th> }
+                    <th scope="col">Unit Price</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Product</th>
+                </tr>
+            </thead>
+            <tbody class="text-dark table-input">
+                @for (cartItem of cartItemsService.cartItems() | byCheckProductsNamePipe :
+                shoppingCartsService.productName(); track cartItem.name) {
+                <tr>
+                    @if (shoppingCartsService.isShown()) {
+                    <td>
+                        <button type="button" (click)="onDeleteCartItemClick(cartItem.product_id!)"
+                            class="btn-close">X</button>
+                    </td>
+                    }
+
+                    <td>{{ cartItem.price }} ₪</td>
+
+                    <td>
+                        <span
+                            [ngStyle]="{'background-color': shoppingCartsService.productName() === '' ? 'transparent' : 'yellow'}">
+                            {{ cartItem.name }}
+                        </span>
+                    </td>
+
+                    <td>{{ cartItem.quantity }}</td>
+
+                    <td>
+                        <img class="card-img-top" [src]="'http://localhost:3000/uploads/' + cartItem.picture"
+                            alt="product image">
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="cart-summary">
+            @if (!shoppingCartsService.isCartEmpty()) {
+            <span class="total-price-text">Total Price: ₪ {{cartItemsService.sum().toFixed(2)}} </span>
+            } @else {
+            <span class="empty-cart-text">Your Cart is Empty</span>
+            }
+        </div>
+
+        <div class="action-buttons-container">
+            @if (!shoppingCartsService.isCartEmpty() && shoppingCartsService.isShown()) {
+            <button type="button" class="btn icon-btn custom-tooltip" data-tooltip="Delete All"
+                (click)="onDeleteAllCartItemsClick()"><img src="images/delete.png" alt="delete all"></button>
+            <button type="button" class="btn icon-btn custom-tooltip" (click)="onOrderClick()" data-tooltip="Order">
+                <img src="images/checkout.png" alt="order">
+            </button>
+            }
+        </div>
+    </div>
+    }
+
+    @if (!shoppingCartsService.isCustomer()) {
+    <div class="admin-container">
+        <button class="btn btn-info add-product-btn" (click)="onAddNewProductClick()">Add New
+            Product</button>
+        <form [formGroup]="adminFormGroup" class="admin-form">
+            <div class="form-group">
+                <label>Product name:</label>
+                <input class="form-control" type="text" formControlName="productName">
+
+                @if (adminFormGroup.get('productName')?.touched) {
+                @if (adminFormGroup.get('productName')?.hasError('required')) { <span
+                    class="formValidations">Required.</span> }
+                @if (adminFormGroup.get('productName')?.hasError('pattern')) { <span class="formValidations">Invalid
+                    format.</span> }
+                }
+            </div>
+
+            <div class="form-group">
+                <label>Product price:</label>
+                <input class="form-control" type="text" formControlName="productPrice">
+            </div>
+
+            <div class="form-group">
+                <label>Categories:</label>
+                <select class="form-control" formControlName="productCategory">
+                    <option value="" disabled selected>Choose a category</option>
+                    @for (cat of categoriesService.categories(); track cat.id) {
+                    <option [value]="cat.id">{{cat.name}}</option>
+                    }
+                </select>
+            </div>
+            <mat-card class="admin-mat-card">
+                <mat-card-content>
+                    @if (productsService.product().picture) {
+                    <img [src]="'http://localhost:3000/uploads/' + productsService.product().picture"
+                        class="preview-image" alt="pic" />
+                    }
+                </mat-card-content>
+
+                <mat-card-actions class="justify-content-center">
+                    <button mat-button color="warn" type="button" (click)="onUploadImageClick()">
+                        <mat-icon>file_upload</mat-icon>
+                    </button>
+
+                    <input type="file" #fileUpload name="fileUpload" multiple="multiple" accept="image/*"
+                        id="uploadInput" />
+                </mat-card-actions>
+            </mat-card>
+
+            <button type="button" class="btn btn-success w-100 save-admin-btn" (click)="onSaveClick()"
+                [disabled]="adminFormGroup.invalid || !productsService.product().picture">
+                Save
+            </button>
+        </form>
+    </div>
+    }
+</div>
