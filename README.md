@@ -19,7 +19,7 @@ The project describes the development of a **virtual store**  – an online shop
   - Services
   - Routing mechanism
     
-* NodeJS 22
+* NodeJS 24
   - Using express
   - Restfull App
   - Middlewares
